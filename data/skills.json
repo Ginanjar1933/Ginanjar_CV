@@ -1,0 +1,37 @@
+[
+  {
+    "id": "javascript",
+    "nama": "JavaScript",
+    "kategori": "Bahasa Pemrograman",
+    "level": "Menengah",
+    "ikon": "logo-javascript"
+  },
+  {
+    "id": "react-native",
+    "nama": "React Native",
+    "kategori": "Mobile",
+    "level": "Pemula",
+    "ikon": "logo-react"
+  },
+  {
+    "id": "html",
+    "nama": "HTML",
+    "kategori": "Web",
+    "level": "Menengah",
+    "ikon": "logo-html5"
+  },
+  {
+    "id": "css",
+    "nama": "CSS",
+    "kategori": "Web",
+    "level": "Menengah",
+    "ikon": "logo-css3"
+  },
+  {
+    "id": "git",
+    "nama": "Git & GitHub",
+    "kategori": "Tools",
+    "level": "Pemula",
+    "ikon": "logo-github"
+  }
+]

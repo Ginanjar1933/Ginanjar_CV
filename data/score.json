@@ -1,0 +1,17 @@
+{
+  "dummy": true,
+  "identitas": {
+    "nama": "Ginanjar Saepulloh",
+    "nim": "242505026",
+    "mataKuliah": "Pemrograman Mobile 2",
+    "dosen": "Iin, M.Kom"
+  },
+  "currentScore": { "nilai": 89, "grade": "A" },
+  "learningPoints": { "total": 12375 },
+  "progress": [
+    { "id": "attendance", "label": "Attendance", "persen": 100 },
+    { "id": "practice", "label": "Practice", "persen": 87 },
+    { "id": "quest", "label": "Quest", "persen": 95 },
+    { "id": "challenge", "label": "Challenge", "persen": 100 }
+  ]
+}

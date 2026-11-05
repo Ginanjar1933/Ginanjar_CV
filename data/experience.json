@@ -1,0 +1,29 @@
+[
+  {
+    "id": "kuliah-si",
+    "judul": "S1 Sistem Informasi",
+    "instansi": "Universitas Ma'soem",
+    "periode": "2024 - Sekarang",
+    "deskripsi": "Mempelajari pengembangan aplikasi web dan mobile, basis data, dan analisis sistem.",
+    "tipe": "Pendidikan",
+    "ikon": "school-outline"
+  },
+  {
+    "id": "organisasi",
+    "judul": "Anggota Organisasi Mahasiswa",
+    "instansi": "Universitas Ma'soem",
+    "periode": "2025",
+    "deskripsi": "Terlibat dalam kegiatan kampus dan kerja tim lintas divisi.",
+    "tipe": "Organisasi",
+    "ikon": "people-outline"
+  },
+  {
+    "id": "sekolah",
+    "judul": "SMA / SMK",
+    "instansi": "Nama sekolahmu",
+    "periode": "2021 - 2024",
+    "deskripsi": "Lulus dari pendidikan menengah.",
+    "tipe": "Pendidikan",
+    "ikon": "book-outline"
+  }
+]

@@ -1,0 +1,26 @@
+[
+  {
+    "id": "cv-mobile",
+    "judul": "Personal CV & Academic Score App",
+    "deskripsi": "Aplikasi mobile CV dan dashboard nilai akademik, dibuat dengan React Native dan Expo.",
+    "tags": ["Mobile", "React Native"],
+    "tahun": "2026",
+    "ikon": "phone-portrait-outline"
+  },
+  {
+    "id": "web-portfolio",
+    "judul": "Website Portofolio Pribadi",
+    "deskripsi": "Website portofolio statis yang menampilkan profil, skill, dan kontak.",
+    "tags": ["Web", "HTML", "CSS"],
+    "tahun": "2025",
+    "ikon": "globe-outline"
+  },
+  {
+    "id": "todo-app",
+    "judul": "Aplikasi To-Do List",
+    "deskripsi": "Aplikasi pencatat tugas sederhana dengan JavaScript untuk latihan state dan event.",
+    "tags": ["Web", "JavaScript"],
+    "tahun": "2025",
+    "ikon": "checkbox-outline"
+  }
+]
