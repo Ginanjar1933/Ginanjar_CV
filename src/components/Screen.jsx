@@ -10,6 +10,7 @@ import {
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { StatusBar } from 'expo-status-bar';
 import ThemeToggle from './ThemeToggle';
+import TerminalRain from './TerminalRain';
 import { useTheme } from '../hooks/useTheme';
 import { spacing, typography } from '../constants/theme';
 
@@ -20,6 +21,7 @@ export default function Screen({ title, children, scroll = true }) {
   return (
     <SafeAreaView style={styles.safe} edges={['top']}>
       <StatusBar style={isDark ? 'light' : 'dark'} />
+      <TerminalRain />
 
       <View style={styles.topBar}>
         <Text accessibilityRole="header" style={styles.title}>

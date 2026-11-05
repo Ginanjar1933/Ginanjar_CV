@@ -1,6 +1,7 @@
 import { useMemo } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import TiltCard from './TiltCard';
 import { useTheme } from '../hooks/useTheme';
 import { spacing, radius, typography } from '../constants/theme';
 
@@ -9,31 +10,33 @@ export default function ProjectCard({ project }) {
   const styles = useMemo(() => createStyles(colors), [colors]);
 
   return (
-    <View
-      style={styles.card}
-      accessible
-      accessibilityLabel={`${project.judul}, tahun ${project.tahun}. ${project.deskripsi}`}
-    >
-      <View style={styles.header}>
-        <View style={styles.iconBox}>
-          <Ionicons name={project.ikon} size={24} color={colors.primary} />
-        </View>
-        <View style={styles.titleBox}>
-          <Text style={styles.title}>{project.judul}</Text>
-          <Text style={styles.year}>{project.tahun}</Text>
-        </View>
-      </View>
-
-      <Text style={styles.desc}>{project.deskripsi}</Text>
-
-      <View style={styles.tags}>
-        {project.tags.map((tag) => (
-          <View key={tag} style={styles.tag}>
-            <Text style={styles.tagText}>{tag}</Text>
+    <TiltCard>
+      <View
+        style={styles.card}
+        accessible
+        accessibilityLabel={`${project.judul}, tahun ${project.tahun}. ${project.deskripsi}`}
+      >
+        <View style={styles.header}>
+          <View style={styles.iconBox}>
+            <Ionicons name={project.ikon} size={24} color={colors.primary} />
           </View>
-        ))}
+          <View style={styles.titleBox}>
+            <Text style={styles.title}>{project.judul}</Text>
+            <Text style={styles.year}>{project.tahun}</Text>
+          </View>
+        </View>
+
+        <Text style={styles.desc}>{project.deskripsi}</Text>
+
+        <View style={styles.tags}>
+          {project.tags.map((tag) => (
+            <View key={tag} style={styles.tag}>
+              <Text style={styles.tagText}>{tag}</Text>
+            </View>
+          ))}
+        </View>
       </View>
-    </View>
+    </TiltCard>
   );
 }
 

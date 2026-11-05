@@ -1,5 +1,6 @@
 import { useMemo } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+import CountUp from './CountUp';
 import { useTheme } from '../hooks/useTheme';
 import { spacing, radius, typography } from '../constants/theme';
 
@@ -15,7 +16,7 @@ export default function ScoreCard({ nilai, grade, totalLP }) {
         accessibilityLabel={`Current score ${nilai}, grade ${grade}`}
       >
         <Text style={styles.smallLight}>Current Score</Text>
-        <Text style={styles.bigScore}>{nilai}</Text>
+        <CountUp to={nilai} style={styles.bigScore} />
         <View style={styles.gradeBadge}>
           <Text style={styles.gradeText}>Grade {grade}</Text>
         </View>
@@ -27,7 +28,12 @@ export default function ScoreCard({ nilai, grade, totalLP }) {
         accessibilityLabel={`Learning points ${totalLP.toLocaleString('id-ID')} LP`}
       >
         <Text style={styles.small}>Learning Points</Text>
-        <Text style={styles.lpValue}>{totalLP.toLocaleString('id-ID')}</Text>
+        <CountUp
+          to={totalLP}
+          duration={1800}
+          format={(n) => n.toLocaleString('id-ID')}
+          style={styles.lpValue}
+        />
         <Text style={styles.small}>LP</Text>
       </View>
     </View>
