@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import { View, Text, Pressable, StyleSheet } from 'react-native';
+import { View, Text, Pressable, StyleSheet, Platform } from 'react-native';
 import { useRouter } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import Screen from '../../components/Screen';
@@ -9,9 +9,10 @@ import HeroIntro from '../../components/HeroIntro';
 import LanyardCard from '../../components/LanyardCard';
 import ProfileSummary from '../../components/ProfileSummary';
 import ExperienceSection from '../../components/ExperienceSection';
-import SkillMarquee from '../../components/SkillMarquee';
+import SkillLoops from '../../components/SkillLoops';
 import SkillItem from '../../components/SkillItem';
 import ProjectCard from '../../components/ProjectCard';
+import PortfolioWall from '../../components/PortfolioWall';
 import ScoreCard from '../../components/ScoreCard';
 import { useTheme } from '../../hooks/useTheme';
 import { spacing, radius, typography } from '../../constants/theme';
@@ -56,7 +57,7 @@ export default function Home() {
             title="Keterampilan"
             onPress={() => router.navigate('/skills')}
           />
-          <SkillMarquee skills={skillsData} />
+          <SkillLoops skills={skillsData} />
           <View style={styles.card}>
             {skillsData.slice(0, 3).map((skill) => (
               <SkillItem key={skill.id} skill={skill} />
@@ -71,11 +72,17 @@ export default function Home() {
             title="Portofolio"
             onPress={() => router.navigate('/portfolio')}
           />
-          <View style={styles.card}>
-            {projectsData.slice(0, 2).map((project) => (
-              <ProjectCard key={project.id} project={project} />
-            ))}
-          </View>
+          {Platform.OS === 'web' ? (
+            <View style={styles.wall}>
+              <PortfolioWall embedded />
+            </View>
+          ) : (
+            <View style={styles.card}>
+              {projectsData.slice(0, 2).map((project) => (
+                <ProjectCard key={project.id} project={project} />
+              ))}
+            </View>
+          )}
         </View>
       </Reveal>
 
@@ -124,6 +131,14 @@ const createStyles = (colors) =>
       borderColor: colors.border,
       padding: spacing.md,
       gap: spacing.md,
+    },
+    wall: {
+      height: 420,
+      backgroundColor: colors.background,
+      borderRadius: radius.lg,
+      borderWidth: 1,
+      borderColor: colors.border,
+      overflow: 'hidden',
     },
     cta: {
       minHeight: 72,

@@ -1,26 +1,170 @@
 [
   {
+    "id": "sistem-penjadwalan",
+    "judul": "Sistem Penjadwalan Perkuliahan",
+    "singkat": "Penjadwalan Kuliah",
+    "kategori": "Aplikasi Web Fullstack",
+    "deskripsi": "Aplikasi web untuk mengelola jadwal perkuliahan di lingkungan fakultas dengan enam peran pengguna: mahasiswa, dosen, sekprodi, kaprodi, dekan, dan kosma. Mencakup data master, tampilan jadwal, pengajuan perubahan jadwal, dan surat tugas mengajar.",
+    "fitur": [
+      "Akses berbasis peran dengan dashboard terpisah untuk 6 peran",
+      "CRUD data dosen, mata kuliah, ruangan, dan kelas",
+      "Jadwal dalam tampilan daftar, kalender, dan sheet",
+      "Dosen memilih slot jadwal yang tersedia (charter jadwal)",
+      "Pengajuan pindah jadwal dengan alur persetujuan KOSMA",
+      "Permintaan barter jadwal antar dosen (terima/tolak) disertai notifikasi",
+      "Surat tugas mengajar: buat, publikasikan, dan cetak PDF"
+    ],
+    "tags": ["Fullstack", "Laravel"],
+    "teknologi": ["Laravel 12", "PHP 8.2", "Blade", "Tailwind CSS 4", "Bootstrap 5", "Vite", "FullCalendar", "DataTables", "DomPDF", "SQLite (default .env.example)"],
+    "tahun": "2025",
+    "ikon": "calendar-outline",
+    "warna": "#2563EB",
+    "repos": [{ "nama": "Lihat repositori", "url": "https://github.com/Ginanjar1933/sistem-penjadwalan" }],
+    "demo": null,
+    "gambar": null,
+    "catatan": "Logika penukaran jadwal pada barter masih berupa TODO di kode, dan pengujian otomatis baru berisi contoh bawaan Laravel. Daftar teknologi diambil dari composer.json dan package.json. Peran dan kontribusi pribadi perlu dikonfirmasi."
+  },
+  {
+    "id": "video-story-editor",
+    "judul": "Video Story Editor (Pemotong Video Berbasis AI)",
+    "singkat": "Video Story Editor",
+    "kategori": "Web + AI",
+    "deskripsi": "Aplikasi web untuk mengunggah video lalu memotongnya sesuai durasi dan rasio aspek target, sekaligus membuat naskah narasi bergaya komedi berbahasa Indonesia. Analisis konten memakai Gemini dan pemotongan memakai FFmpeg.",
+    "fitur": [
+      "Unggah video dengan indikator progres",
+      "Analisis konten oleh Gemini, dengan skrip cadangan bila analisis gagal",
+      "Pemotongan video dengan FFmpeg sesuai target durasi dan rasio aspek",
+      "Status dan progres pemrosesan bertahap",
+      "Unduh video hasil dan naskah",
+      "Daftar proyek tersimpan di MongoDB"
+    ],
+    "tags": ["Fullstack", "AI", "React", "Python"],
+    "teknologi": ["React 18 (CRA/CRACO)", "Tailwind CSS", "Radix UI / shadcn", "FastAPI", "MongoDB (Motor)", "ffmpeg-python", "Gemini"],
+    "tahun": "2025",
+    "ikon": "film-outline",
+    "warna": "#9333EA",
+    "repos": [{ "nama": "Lihat repositori", "url": "https://github.com/Ginanjar1933/Videofilm" }],
+    "demo": null,
+    "gambar": null,
+    "catatan": "Repo memuat jejak platform Emergent (.emergent), jadi porsi pengerjaan pribadi perlu dikonfirmasi. Contoh naskah di repo berisi pesan galat model Gemini, jadi keberhasilan alur AI dari awal sampai akhir perlu dikonfirmasi."
+  },
+  {
+    "id": "onestore",
+    "judul": "OneStore (Toko Online Front-End)",
+    "singkat": "OneStore",
+    "kategori": "Front-End Web",
+    "deskripsi": "Antarmuka toko online berbahasa Indonesia berbasis HTML, CSS, dan JavaScript murni, dengan alur belanja dari katalog sampai checkout. Data produk statis dan disimpan di browser, belum ada backend.",
+    "fitur": [
+      "8 halaman: beranda, katalog, detail produk, keranjang, checkout, login, daftar, profil",
+      "Filter, pengurutan, chip filter aktif, pagination, tampilan grid/daftar, dan filter mobile",
+      "Keranjang, wishlist, dan sesi pengguna tersimpan di localStorage",
+      "Validasi form login/daftar dengan indikator kekuatan kata sandi",
+      "CSS modular per halaman dan responsif"
+    ],
+    "tags": ["Web", "JavaScript"],
+    "teknologi": ["HTML5", "CSS3", "JavaScript (vanilla)", "localStorage"],
+    "tahun": "2026",
+    "ikon": "cart-outline",
+    "warna": "#0891B2",
+    "repos": [{ "nama": "Lihat repositori", "url": "https://github.com/Ginanjar1933/OneStore" }],
+    "demo": null,
+    "gambar": null,
+    "catatan": "Autentikasi dan checkout berjalan di sisi klien (simulasi). Tautan demo perlu dikonfirmasi."
+  },
+  {
     "id": "cv-mobile",
     "judul": "Personal CV & Academic Score App",
-    "deskripsi": "Aplikasi mobile CV dan dashboard nilai akademik, dibuat dengan React Native dan Expo.",
+    "singkat": "CV & Score App",
+    "kategori": "Aplikasi Mobile",
+    "deskripsi": "Aplikasi CV pribadi lintas platform dengan enam tab (Home, About, Skills, Portfolio, My Score, Contact), tema gelap/terang, dan animasi komponen bergaya React Bits.",
+    "fitur": [
+      "Navigasi tab dengan dock kustom",
+      "Data profil, skill, pengalaman, dan proyek dibaca dari file JSON",
+      "Pencarian dan filter proyek",
+      "Dashboard nilai akademik (data contoh)",
+      "Form kontak dengan validasi",
+      "Tema gelap dan terang"
+    ],
     "tags": ["Mobile", "React Native"],
+    "teknologi": ["React Native 0.88", "Expo SDK 58", "Expo Router", "Reanimated", "react-native-svg", "Gesture Handler"],
     "tahun": "2026",
-    "ikon": "phone-portrait-outline"
+    "ikon": "phone-portrait-outline",
+    "warna": "#0284C7",
+    "repos": [{ "nama": "Lihat repositori", "url": "https://github.com/Ginanjar1933/Ginanjar_CV" }],
+    "demo": null,
+    "gambar": null,
+    "catatan": "Data My Score adalah data contoh, dan form kontak belum mengirim ke server."
   },
   {
-    "id": "web-portfolio",
-    "judul": "Website Portofolio Pribadi",
-    "deskripsi": "Website portofolio statis yang menampilkan profil, skill, dan kontak.",
-    "tags": ["Web", "HTML", "CSS"],
+    "id": "registrasi-wajah",
+    "judul": "Registrasi & Login dengan Deteksi Wajah",
+    "singkat": "Registrasi Wajah",
+    "kategori": "Web + Computer Vision",
+    "deskripsi": "Formulir registrasi bertahap dengan validasi data, deteksi wajah pada foto unggahan, dan langkah pengambilan foto lewat kamera menggunakan TensorFlow.js (BlazeFace).",
+    "fitur": [
+      "Validasi nama, username, kata sandi (6–20 karakter), dan nomor WhatsApp berformat 62",
+      "Unggah foto JPG dengan deteksi wajah di browser",
+      "Verifikasi lewat kamera (getUserMedia)",
+      "Alur registrasi bertahap dan login demo"
+    ],
+    "tags": ["Web", "TensorFlow.js"],
+    "teknologi": ["HTML", "CSS", "JavaScript", "TensorFlow.js", "BlazeFace", "MediaDevices API"],
     "tahun": "2025",
-    "ikon": "globe-outline"
+    "ikon": "scan-outline",
+    "warna": "#DB2777",
+    "repos": [{ "nama": "Lihat repositori", "url": "https://github.com/Ginanjar1933/form_Regis" }],
+    "demo": null,
+    "gambar": null,
+    "catatan": "Skor kecocokan wajah masih simulasi (nilai acak) dan data demo disimpan di localStorage tanpa enkripsi, jadi ini prototipe, bukan autentikasi yang aman."
   },
   {
-    "id": "todo-app",
-    "judul": "Aplikasi To-Do List",
-    "deskripsi": "Aplikasi pencatat tugas sederhana dengan JavaScript untuk latihan state dan event.",
+    "id": "kalkulator-web",
+    "judul": "Kumpulan Kalkulator Web",
+    "singkat": "Kalkulator Web",
+    "kategori": "Front-End Web",
+    "deskripsi": "Tiga latihan kalkulator dengan pendekatan berbeda: kalkulator matriks ordo 2×2 dan kalkulator standar berbasis React, serta kalkulator versi jQuery.",
+    "fitur": [
+      "Matriks 2×2: penjumlahan, pengurangan, dan perkalian",
+      "Kalkulator React dengan custom hook useCalculator, faktorial, dan ubah tanda",
+      "Kalkulator jQuery dengan faktorial, desimal, dan ubah tanda",
+      "Komponen terpisah (Display, Keypad, Button) pada versi React"
+    ],
+    "tags": ["Web", "React"],
+    "teknologi": ["React 18", "Tailwind CSS", "Create React App", "jQuery", "HTML/CSS"],
+    "tahun": "2024",
+    "ikon": "calculator-outline",
+    "warna": "#16A34A",
+    "repos": [
+      { "nama": "Kalkulator Matriks", "url": "https://github.com/Ginanjar1933/Kalkulator-Matriks-Ginanjar" },
+      { "nama": "Kalkulator React", "url": "https://github.com/Ginanjar1933/Ginanjar.kalkulator" },
+      { "nama": "Kalkulator jQuery", "url": "https://github.com/Ginanjar1933/kalkulator.ginanjar" }
+    ],
+    "demo": null,
+    "gambar": null,
+    "catatan": "Proyek latihan; tidak ada tautan demo yang terverifikasi."
+  },
+  {
+    "id": "latihan-javascript",
+    "judul": "Latihan JavaScript: Poin Remi & Tabel Data",
+    "singkat": "Latihan JavaScript",
+    "kategori": "JavaScript Murni",
+    "deskripsi": "Dua aplikasi web ringan berbasis JavaScript murni: pencatat poin permainan kartu Remi dan tabel data teman kampus yang bisa diedit langsung.",
+    "fitur": [
+      "Remi: tambah/hapus pemain, ubah skor (tombol atau nilai kustom), ronde berikutnya, dan riwayat permainan",
+      "Tabel data: tambah lewat modal, edit sel dengan klik ganda, dan hapus baris",
+      "Tabel data tersimpan di cookie"
+    ],
     "tags": ["Web", "JavaScript"],
+    "teknologi": ["HTML", "CSS", "JavaScript (vanilla)"],
     "tahun": "2025",
-    "ikon": "checkbox-outline"
+    "ikon": "code-slash-outline",
+    "warna": "#EA580C",
+    "repos": [
+      { "nama": "Kalkulator Poin Remi", "url": "https://github.com/Ginanjar1933/Remi" },
+      { "nama": "Manipulasi Tabel Data", "url": "https://github.com/Ginanjar1933/Manipulasi_Tabel-Data" }
+    ],
+    "demo": null,
+    "gambar": null,
+    "catatan": "Data Remi hanya di memori (hilang saat dimuat ulang), dan fungsi simpan ke server pada tabel masih tiruan (mock)."
   }
 ]

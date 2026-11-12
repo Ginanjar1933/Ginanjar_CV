@@ -3,6 +3,7 @@ import { View, Text, StyleSheet } from 'react-native';
 import SkillItem from './SkillItem';
 import { useTheme } from '../hooks/useTheme';
 import { spacing, radius, typography } from '../constants/theme';
+import TechTitle from './TechTitle';
 
 export default function SkillsSection({ skills }) {
   const { colors } = useTheme();
@@ -10,9 +11,7 @@ export default function SkillsSection({ skills }) {
 
   return (
     <View style={styles.card}>
-      <Text accessibilityRole="header" style={styles.title}>
-        Keterampilan
-      </Text>
+      <TechTitle>Keterampilan</TechTitle>
 
       {skills.map((skill) => (
         <SkillItem key={skill.id} skill={skill} />

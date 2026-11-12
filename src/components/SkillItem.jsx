@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { useTheme } from '../hooks/useTheme';
 import { spacing, radius, typography } from '../constants/theme';
 
@@ -15,7 +15,11 @@ export default function SkillItem({ skill }) {
       accessibilityLabel={`${skill.nama}, ${skill.kategori}, level ${skill.level}`}
     >
       <View style={styles.iconBox}>
-        <Ionicons name={skill.ikon} size={24} color={colors.primary} />
+        <MaterialCommunityIcons
+          name={skill.ikon}
+          size={26}
+          color={skill.warna ?? colors.primary}
+        />
       </View>
 
       <View style={styles.info}>

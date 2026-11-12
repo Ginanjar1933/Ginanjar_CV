@@ -1,5 +1,7 @@
 import { useMemo } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, StyleSheet } from 'react-native';
+import TechTitle from './TechTitle';
+import FoldText from './FoldText';
 import { useTheme } from '../hooks/useTheme';
 import { spacing, radius, typography } from '../constants/theme';
 
@@ -9,12 +11,8 @@ export default function ProfileSummary({ data }) {
 
   return (
     <View style={styles.card}>
-      <Text accessibilityRole="header" style={styles.title}>
-        Ringkasan
-      </Text>
-      <Text style={styles.body} numberOfLines={4}>
-        {data.deskripsi}
-      </Text>
+      <TechTitle>Ringkasan</TechTitle>
+      <FoldText text={data.deskripsi} style={styles.body} lineHeight={26} />
     </View>
   );
 }
@@ -29,14 +27,8 @@ const createStyles = (colors) =>
       padding: spacing.lg,
       gap: spacing.sm,
     },
-    title: {
-      fontSize: typography.heading,
-      fontWeight: '700',
-      color: colors.text,
-    },
     body: {
       fontSize: typography.body,
-      lineHeight: 24,
-      color: colors.textMuted,
+      color: colors.text,
     },
   });

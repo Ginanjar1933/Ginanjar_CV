@@ -2,6 +2,8 @@ import { useState, useMemo } from 'react';
 import { View, Text, TextInput, Pressable, StyleSheet } from 'react-native';
 import { useTheme } from '../hooks/useTheme';
 import { spacing, radius, typography } from '../constants/theme';
+import TechTitle from './TechTitle';
+import { validateContact } from '../utils/validateContact';
 
 const emptyForm = { nama: '', email: '', pesan: '' };
 
@@ -21,16 +23,8 @@ export default function ContactForm() {
     }
   };
 
-  const validate = () => {
-    const newErrors = {};
-    if (!form.nama.trim()) newErrors.nama = 'Nama wajib diisi';
-    if (!form.email.trim()) newErrors.email = 'Email wajib diisi';
-    if (!form.pesan.trim()) newErrors.pesan = 'Pesan wajib diisi';
-    return newErrors;
-  };
-
   const handleSubmit = () => {
-    const newErrors = validate();
+    const newErrors = validateContact(form);
     setErrors(newErrors);
 
     if (Object.keys(newErrors).length === 0) {
@@ -43,9 +37,7 @@ export default function ContactForm() {
 
   return (
     <View style={styles.card}>
-      <Text accessibilityRole="header" style={styles.title}>
-        Hubungi Saya
-      </Text>
+      <TechTitle>Hubungi Saya</TechTitle>
 
       <View style={styles.field}>
         <Text style={styles.label}>Nama</Text>
@@ -56,6 +48,7 @@ export default function ContactForm() {
           placeholder="Nama lengkap"
           placeholderTextColor={colors.textMuted}
           autoCapitalize="words"
+          accessibilityLabel="Nama"
         />
         {errors.nama && (
           <Text style={styles.errorText} accessibilityRole="alert">
@@ -75,6 +68,7 @@ export default function ContactForm() {
           keyboardType="email-address"
           autoCapitalize="none"
           autoCorrect={false}
+          accessibilityLabel="Email"
         />
         {errors.email && (
           <Text style={styles.errorText} accessibilityRole="alert">
@@ -93,6 +87,7 @@ export default function ContactForm() {
           placeholderTextColor={colors.textMuted}
           multiline
           textAlignVertical="top"
+          accessibilityLabel="Pesan"
         />
         {errors.pesan && (
           <Text style={styles.errorText} accessibilityRole="alert">

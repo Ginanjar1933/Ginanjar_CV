@@ -1,6 +1,7 @@
 import { useMemo } from 'react';
 import { View, Text, Pressable, StyleSheet } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import TechTitle from './TechTitle';
 import { useTheme } from '../hooks/useTheme';
 import { spacing, typography } from '../constants/theme';
 
@@ -10,9 +11,7 @@ export default function SectionHeader({ title, onPress }) {
 
   return (
     <View style={styles.row}>
-      <Text accessibilityRole="header" style={styles.title}>
-        {title}
-      </Text>
+      <TechTitle style={styles.title}>{title}</TechTitle>
       <Pressable
         onPress={onPress}
         style={styles.button}
@@ -32,12 +31,9 @@ const createStyles = (colors) =>
       flexDirection: 'row',
       alignItems: 'center',
       justifyContent: 'space-between',
+      gap: spacing.sm,
     },
-    title: {
-      fontSize: typography.heading,
-      fontWeight: '700',
-      color: colors.text,
-    },
+    title: { flex: 1 },
     button: {
       minHeight: 44,
       flexDirection: 'row',

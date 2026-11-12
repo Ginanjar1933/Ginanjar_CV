@@ -1,56 +1,97 @@
-# Welcome to your Expo app 👋
+# Personal CV & Academic Score App
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Aplikasi mobile CV pribadi + dashboard capaian akademik, dibuat dengan React Native dan Expo untuk UTS Pemrograman Mobile 2.
 
-## Get started
+- **Nama:** Ginanjar Saepulloh
+- **NIM:** 242505026
+- **Mata kuliah:** Pemrograman Mobile 2 (Dosen: Iin, M.Kom)
+- **Level yang diklaim:** Level 10 (Industry)
 
-1. Install dependencies
+## Fitur
 
-   ```bash
-   npm install
-   ```
+| Area | Fitur |
+| --- | --- |
+| Profil | Foto, nama, NIM, profesi, deskripsi, kartu lanyard |
+| About | Timeline pendidikan dan pengalaman |
+| Skills | Daftar keterampilan dinamis dari JSON |
+| Portfolio | Kartu proyek, pencarian, filter tag, state loading/error/empty |
+| My Score | Identitas akademik, current score, learning points, indikator progres (data dummy) |
+| Contact | Form nama/email/pesan dengan validasi dan umpan balik |
+| Tema | Mode gelap/terang, pilihan tersimpan di penyimpanan lokal |
+| Navigasi | 6 tab dengan Expo Router dan dock kustom |
 
-2. Start the app
+## Teknologi
 
-   ```bash
-   npx expo start
-   ```
+Expo SDK 58, React Native 0.88, React 19, Expo Router, Reanimated, Gesture Handler, react-native-svg, AsyncStorage, Jest + React Native Testing Library.
 
-In the output, you'll find options to open the app in a
+## Cara menjalankan
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **src/app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
+Prasyarat: Node.js 22.13 atau lebih baru.
 
 ```bash
-npm run reset-project
+npm install
+npx expo start
 ```
 
-This command will move the starter code to the **example** directory and create a blank **src/app** directory where you can start developing.
+Lalu pindai QR dengan Expo Go (Android/iOS), atau tekan `a` (Android emulator), `i` (iOS simulator), `w` (web).
 
-### Other setup steps
+> Mode web hanya untuk preview. Tab Portfolio di web memakai tampilan "wall" yang berbeda dari versi mobile.
 
-- To set up ESLint for linting, run `npx expo lint`, or follow our guide on ["Using ESLint and Prettier"](https://docs.expo.dev/guides/using-eslint/)
-- If you'd like to set up unit testing, follow our guide on ["Unit Testing with Jest"](https://docs.expo.dev/develop/unit-testing/)
-- Learn more about the TypeScript setup in this template in our guide on ["Using TypeScript"](https://docs.expo.dev/guides/typescript/)
+## Menjalankan tes
 
-## Learn more
+```bash
+npm test
+```
 
-To learn more about developing your project with Expo, look at the following resources:
+Cakupan tes: validasi form, filter portofolio, kelengkapan dan validitas data JSON (termasuk nilai My Score), render indikator progres dari data, theme toggle + penyimpanan preferensi, dan komponen state loading/error.
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+## Struktur proyek
 
-## Join the community
+```
+src/
+├── app/            # Halaman (Expo Router): _layout, (tabs)/index, about, skills, portfolio, my-score, contact
+├── components/     # Komponen UI reusable (menerima data lewat props)
+├── hooks/          # useTheme (tema + penyimpanan), useProjects (loading/error)
+├── services/       # projectsService (mock API dengan jeda simulasi)
+├── utils/          # Logika murni: validateContact, filterProjects
+└── constants/      # Token desain (warna, spacing, tipografi)
+data/               # Sumber data JSON (profile, skills, experience, projects, score)
+assets/             # Gambar dan foto
+__tests__/          # Tes Jest
+jest.setup.js       # Mock modul native untuk pengujian
+```
 
-Join our community of developers creating universal apps.
+## Arsitektur dan aliran data
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+```
+data/*.json ──► (services / hooks) ──► halaman di src/app ──► komponen via props
+```
+
+- **Data** tinggal di `data/*.json`; mengubah isi CV tidak menyentuh komponen.
+- **Logika** (validasi, filter) ada di `src/utils` sebagai fungsi murni sehingga mudah dites.
+- **Komponen** hanya menampilkan data yang diterima lewat props.
+- **Portofolio** dimuat lewat `projectsService` (simulasi API) dan `useProjects`, sehingga loading dan error ditangani di satu tempat.
+
+## Penanganan kondisi khusus
+
+- **Loading:** spinner saat portofolio dimuat.
+- **Error:** pesan + tombol "Coba lagi". Untuk mendemokan, ubah `SIMULASI_GAGAL` menjadi `true` di `src/services/projectsService.js`.
+- **Empty:** pesan + tombol "Reset filter" saat pencarian tanpa hasil.
+- **Form:** pesan error per field (termasuk format email) dan pesan sukses.
+
+## Aksesibilitas
+
+`accessibilityRole`, `accessibilityLabel`, dan `accessibilityState` dipakai pada tombol, filter, input, toggle tema, dan indikator progres. Area sentuh minimal 44 px. Pesan error dan sukses memakai role `alert`.
+
+## Keputusan teknis
+
+- Fungsi murni untuk logika supaya dapat dites tanpa merender UI.
+- Satu hook `useProjects` agar kondisi loading/error tidak tersebar di komponen.
+- AsyncStorage hanya untuk preferensi tema (data kecil dan non-sensitif).
+
+## Keterbatasan
+
+- Data My Score adalah data dummy (sesuai ketentuan UTS).
+- Form kontak belum mengirim ke server.
+- Portofolio memakai mock API lokal, belum API sungguhan.
+- Integrasi API Academic War LMS belum dilakukan (pengembangan lanjutan).

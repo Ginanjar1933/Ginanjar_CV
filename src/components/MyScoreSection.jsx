@@ -5,6 +5,7 @@ import ScoreCard from './ScoreCard';
 import ProgressIndicator from './ProgressIndicator';
 import { useTheme } from '../hooks/useTheme';
 import { spacing, radius, typography } from '../constants/theme';
+import TechTitle from './TechTitle';
 
 export default function MyScoreSection({ data }) {
   const { colors } = useTheme();
@@ -12,9 +13,7 @@ export default function MyScoreSection({ data }) {
 
   return (
     <View style={styles.card}>
-      <Text accessibilityRole="header" style={styles.title}>
-        My Score
-      </Text>
+      <TechTitle>My Score</TechTitle>
 
       <AcademicIdentity identitas={data.identitas} />
 
@@ -24,9 +23,7 @@ export default function MyScoreSection({ data }) {
         totalLP={data.learningPoints.total}
       />
 
-      <Text accessibilityRole="header" style={styles.subtitle}>
-        Learning Progress
-      </Text>
+      <TechTitle size={18}>Learning Progress</TechTitle>
 
       {data.progress.map((item) => (
         <ProgressIndicator

@@ -1,34 +1,47 @@
 import { useState, useMemo } from 'react';
 import { View, Text, Pressable, StyleSheet } from 'react-native';
+import TechTitle from './TechTitle';
+import FoldText from './FoldText';
 import { useTheme } from '../hooks/useTheme';
 import { spacing, radius, typography } from '../constants/theme';
+
+const PREVIEW_WORDS = 18;
 
 export default function AboutSection({ data }) {
   const { colors } = useTheme();
   const styles = useMemo(() => createStyles(colors), [colors]);
   const [expanded, setExpanded] = useState(false);
 
+  const words = data.deskripsi.split(' ');
+  const shown = expanded
+    ? data.deskripsi
+    : words.slice(0, PREVIEW_WORDS).join(' ') + (words.length > PREVIEW_WORDS ? '…' : '');
+
   return (
     <View style={styles.card}>
-      <Text accessibilityRole="header" style={styles.title}>
-        Tentang Saya
-      </Text>
+      <TechTitle>Tentang Saya</TechTitle>
 
-      <Text style={styles.body} numberOfLines={expanded ? undefined : 3}>
-        {data.deskripsi}
-      </Text>
+      <FoldText
+        key={expanded ? 'full' : 'short'}
+        text={shown}
+        style={styles.body}
+        lineHeight={24}
+        focusReplay={false}
+      />
 
-      <Pressable
-        onPress={() => setExpanded(!expanded)}
-        style={styles.button}
-        accessibilityRole="button"
-        accessibilityLabel={expanded ? 'Tampilkan lebih sedikit' : 'Baca selengkapnya'}
-        accessibilityState={{ expanded }}
-      >
-        <Text style={styles.buttonText}>
-          {expanded ? 'Tampilkan lebih sedikit' : 'Baca selengkapnya'}
-        </Text>
-      </Pressable>
+      {words.length > PREVIEW_WORDS && (
+        <Pressable
+          onPress={() => setExpanded(!expanded)}
+          style={styles.button}
+          accessibilityRole="button"
+          accessibilityLabel={expanded ? 'Tampilkan lebih sedikit' : 'Baca selengkapnya'}
+          accessibilityState={{ expanded }}
+        >
+          <Text style={styles.buttonText}>
+            {expanded ? 'Tampilkan lebih sedikit' : 'Baca selengkapnya'}
+          </Text>
+        </Pressable>
+      )}
     </View>
   );
 }
@@ -43,14 +56,8 @@ const createStyles = (colors) =>
       padding: spacing.lg,
       gap: spacing.sm,
     },
-    title: {
-      fontSize: typography.heading,
-      fontWeight: '700',
-      color: colors.text,
-    },
     body: {
       fontSize: typography.body,
-      lineHeight: 24,
       color: colors.textMuted,
     },
     button: {

@@ -1,7 +1,6 @@
 import { useMemo } from 'react';
 import {
   View,
-  Text,
   ScrollView,
   KeyboardAvoidingView,
   Platform,
@@ -11,8 +10,9 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { StatusBar } from 'expo-status-bar';
 import ThemeToggle from './ThemeToggle';
 import TerminalRain from './TerminalRain';
+import TechTitle from './TechTitle';
 import { useTheme } from '../hooks/useTheme';
-import { spacing, typography } from '../constants/theme';
+import { spacing } from '../constants/theme';
 
 export default function Screen({ title, children, scroll = true }) {
   const { isDark, colors } = useTheme();
@@ -24,9 +24,9 @@ export default function Screen({ title, children, scroll = true }) {
       <TerminalRain />
 
       <View style={styles.topBar}>
-        <Text accessibilityRole="header" style={styles.title}>
+        <TechTitle size={28} style={styles.title}>
           {title}
-        </Text>
+        </TechTitle>
         <ThemeToggle />
       </View>
 
@@ -57,13 +57,10 @@ const createStyles = (colors) =>
       flexDirection: 'row',
       alignItems: 'center',
       justifyContent: 'space-between',
+      gap: spacing.sm,
       paddingHorizontal: spacing.md,
       paddingVertical: spacing.sm,
     },
-    title: {
-      fontSize: typography.title,
-      fontWeight: '700',
-      color: colors.text,
-    },
+    title: { flex: 1 },
     container: { padding: spacing.md, gap: spacing.md },
   });

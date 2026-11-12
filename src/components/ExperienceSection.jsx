@@ -3,6 +3,7 @@ import { View, Text, StyleSheet } from 'react-native';
 import TimelineItem from './TimelineItem';
 import { useTheme } from '../hooks/useTheme';
 import { spacing, radius, typography } from '../constants/theme';
+import TechTitle from './TechTitle';
 
 export default function ExperienceSection({ items }) {
   const { colors } = useTheme();
@@ -10,9 +11,7 @@ export default function ExperienceSection({ items }) {
 
   return (
     <View style={styles.card}>
-      <Text accessibilityRole="header" style={styles.title}>
-        Pendidikan & Pengalaman
-      </Text>
+      <TechTitle size={20}>Pendidikan & Pengalaman</TechTitle>
 
       <View>
         {items.map((item, index) => (

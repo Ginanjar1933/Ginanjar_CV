@@ -4,8 +4,9 @@
     "judul": "S1 Sistem Informasi",
     "instansi": "Universitas Ma'soem",
     "periode": "2024 - Sekarang",
-    "deskripsi": "Mempelajari pengembangan aplikasi web dan mobile, basis data, dan analisis sistem.",
     "tipe": "Pendidikan",
+    "aktif": true,
+    "deskripsi": "Mempelajari pengembangan aplikasi web dan mobile, basis data, serta analisis sistem.",
     "ikon": "school-outline"
   },
   {
@@ -13,17 +14,45 @@
     "judul": "Anggota Organisasi Mahasiswa",
     "instansi": "Universitas Ma'soem",
     "periode": "2025",
-    "deskripsi": "Terlibat dalam kegiatan kampus dan kerja tim lintas divisi.",
     "tipe": "Organisasi",
+    "deskripsi": "Terlibat dalam kegiatan kampus dan kerja tim lintas divisi.",
     "ikon": "people-outline"
   },
   {
-    "id": "sekolah",
-    "judul": "SMA / SMK",
-    "instansi": "Nama sekolahmu",
-    "periode": "2021 - 2024",
-    "deskripsi": "Lulus dari pendidikan menengah.",
+    "id": "magang-it",
+    "judul": "IT Support & Administrasi Sistem (Magang)",
+    "instansi": "Puskesmas Jatinangor & Pesantren Al Ma'soem",
+    "periode": "2024 - 2026",
+    "tipe": "Magang",
+    "catatan": "Dilakukan saat kuliah",
+    "deskripsi": "Menangani dukungan teknis perangkat keras/lunak, pemeliharaan jaringan, serta membantu operasional sistem informasi dan administrasi digital.",
+    "ikon": "laptop-outline"
+  },
+  {
+    "id": "ikpm",
+    "judul": "Operator Produksi",
+    "instansi": "PT Ikapharmindo Putramas Tbk (IKPM)",
+    "periode": "2023 - 2024",
+    "tipe": "Pekerjaan",
+    "deskripsi": "Bekerja selama hampir 9 bulan di industri farmasi. Bertanggung jawab atas kelancaran proses produksi, kepatuhan standar operasional (SOP), ketelitian tinggi, dan pencapaian target tim.",
+    "ikon": "briefcase-outline"
+  },
+  {
+    "id": "produksi-ritel",
+    "judul": "Staf Produksi & Operasional Ritel",
+    "instansi": "Pabrik Gas LPG (Produksi Tutup Gas) & Toko Beras",
+    "periode": "2023",
+    "tipe": "Pekerjaan",
+    "deskripsi": "Mengelola lini produksi komponen tutup tabung gas LPG serta menangani operasional harian, manajemen stok, dan pelayanan pelanggan di usaha ritel sembako.",
+    "ikon": "briefcase-outline"
+  },
+  {
+    "id": "smk-tbsm",
+    "judul": "Teknik dan Bisnis Sepeda Motor (TBSM), termasuk Magang Mekanik Bengkel",
+    "instansi": "SMK Inovasi",
+    "periode": "2020 - 2023",
     "tipe": "Pendidikan",
-    "ikon": "book-outline"
+    "deskripsi": "Menyelesaikan pendidikan kejuruan di bidang otomotif dan menjalani praktik kerja lapangan (magang) sebagai mekanik bengkel untuk melatih ketelitian teknis dan pemecahan masalah.",
+    "ikon": "school-outline"
   }
 ]

@@ -4,6 +4,7 @@ import { Ionicons } from '@expo/vector-icons';
 import TiltCard from './TiltCard';
 import { useTheme } from '../hooks/useTheme';
 import { spacing, radius, typography } from '../constants/theme';
+import FoldText from './FoldText';
 
 export default function ProjectCard({ project }) {
   const { colors } = useTheme();
@@ -26,7 +27,12 @@ export default function ProjectCard({ project }) {
           </View>
         </View>
 
-        <Text style={styles.desc}>{project.deskripsi}</Text>
+        <FoldText
+          text={project.deskripsi ?? ''}
+          style={styles.desc}
+          lineHeight={24}
+          focusReplay={false}
+        />
 
         <View style={styles.tags}>
           {project.tags.map((tag) => (
